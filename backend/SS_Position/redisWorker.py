@@ -10,10 +10,10 @@ redis = redis.Redis(
     port = os.getenv("redisPort", default="6379")
 )
 
-def getPlayerPostition(player):
-    return ensurePositionExists(player)
+def playerPosition(player):
+    return checkPosition(player)
 
-def ensurePositionExists(player):
+def checkPosition(player):
     item = redis.get(player)
     if not redis.exists(player):
         redis.set(player, "20 20")
@@ -21,5 +21,5 @@ def ensurePositionExists(player):
     x,y = str(item.decode("utf8")).split(" ")
     return [ int(x), int(y) ]
 
-def setPlayerPosition(player, x, y):
+def updatePosition(player, x, y):
     redis.set(player, str(x) + " " + str(y))

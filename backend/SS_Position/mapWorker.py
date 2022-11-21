@@ -14,11 +14,11 @@ def setElement(elem, x, y):
                             default="http://ss_maploader:8082/setElem?elem=" + str(elem) + "&x=" + str(x) + "&y=" + str(y)))
     return response.text
 
-def checkPositionMovable(x, y):
+def positionReachable(x, y):
     item = getElement(x, y)
     return item == '.' or item == 'o'
 
-def processOpenable(x, y):
+def interactDoor(x, y):
     item = getElement(x ,y)
     match item:
         case 'c': return setElement('o', x, y)

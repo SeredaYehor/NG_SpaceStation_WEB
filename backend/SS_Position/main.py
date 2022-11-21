@@ -7,8 +7,7 @@ from logWorker import configureLogger
 posSockLog = configureLogger(name="positionSocket")
 clients = []
 
-
-async def positionSocketHandler(websocket):
+async def serveClients(websocket):
     try:
         clients.append(websocket)
         player = websocket.remote_address[0]
@@ -18,13 +17,13 @@ async def positionSocketHandler(websocket):
             message = await websocket.recv()
             command = core.processMessage(player, message)
     except websockets.exceptions.ConnectionClosed:
-        posSockLog.error ("Connection dropped")
+        posSockLog.error("Connection dropped")
         clients.remove(websocket)
         for client in clients:
             await client.send("KICK " + player)
 
 async def main():
-    async with websockets.serve(positionSocketHandler, "0.0.0.0", 8081, logger=posSockLog):
+    async with websockets.serve(serveClients, "0.0.0.0", 8081, logger=posSockLog):
         await asyncio.Future()
-        
+
 asyncio.run(main())

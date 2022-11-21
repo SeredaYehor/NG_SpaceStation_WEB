@@ -37,7 +37,7 @@ def apiWorker():
     flaskEventLoop.close()
 
 
-async def connSocketHandler(websocket):
+async def listenClients(websocket): #maybe handleConnections would be better
     try:
         clients.append(websocket)
         player = websocket.remote_address[0]
@@ -51,7 +51,7 @@ async def connSocketHandler(websocket):
 def sockWorker():
     socketEventLoop = asyncio.new_event_loop()
     asyncio.set_event_loop(socketEventLoop)
-    ws_server = websockets.serve(connSocketHandler, "0.0.0.0", 8083, logger=connSockLog)
+    ws_server = websockets.serve(listenClients, "0.0.0.0", 8083, logger=connSockLog)
     socketEventLoop.run_until_complete(ws_server)
     socketEventLoop.run_forever()
     socketEventLoop.close()

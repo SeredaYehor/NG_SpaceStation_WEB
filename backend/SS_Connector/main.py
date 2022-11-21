@@ -5,12 +5,12 @@ from threading import Thread
 
 def start():
     socketThread = Thread(target=core.sockWorker)
-    flaskThread = Thread(target=core.apiWorker)
+    apiThread = Thread(target=core.apiWorker)
 
     socketThread.start()
-    flaskThread.start()
+    apiThread.start()
 
     socketThread.join()
-    flaskThread.join()
+    apiThread.join()
 
 start()
