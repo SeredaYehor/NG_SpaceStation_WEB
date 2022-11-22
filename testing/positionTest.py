@@ -2,18 +2,19 @@ import unittest
 from redis import Redis
 import sys
 from playerTest import Client
-sys.path.append("../backend/SS_Position")
+
+sys.path.append("SS_Position")
 
 import redisWorker
 import mapWorker
 
-sys.path.remove("../backend/SS_Position")
+sys.path.remove("SS_Position")
 
 class TestPosition(unittest.TestCase):
 
    def setUp(self):
       self.player = "test"
-      redisWorker.redis = Redis("localhost", "6379")
+      #redisWorker.redis = Redis("localhost", "6379")
 
    def test_checkPosition(self):
       self.assertEqual(redisWorker.checkPosition(self.player), [20, 20])
