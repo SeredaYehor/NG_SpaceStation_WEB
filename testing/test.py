@@ -1,6 +1,6 @@
 import requests
 
-url = "http://ss_maploader:8082"
+url = "http://localhost:8082"
 
 def getMap():
    return parseMap(processRequest("/map"))
