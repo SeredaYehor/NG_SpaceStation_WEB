@@ -18,7 +18,7 @@ def processMessage(player, message):
         processMovement(player, dir)
 
 def processMovement(player, key):
-    baseX,baseY = redisWorker.playerPostition(player)
+    baseX,baseY = redisWorker.playerPosition(player)
     x,y = baseX,baseY
     match (key):
         case "W": y -= step
