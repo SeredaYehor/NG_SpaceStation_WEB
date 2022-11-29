@@ -22,7 +22,7 @@ class Client():
       for i in range(len(self.testData)):
          message = self.position_socket.send("MOVE " + self.testData[i])
          answer = self.listen_socket.recv()
-         result.append(answer)
+         result.append(answer.split(' ', 1)[1]) #remove ip from answer
          time.sleep(1)
       return result
 

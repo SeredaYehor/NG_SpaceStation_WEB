@@ -44,8 +44,8 @@ class TestPosition(unittest.TestCase):
 
    def test_position_and_listen_sockets(self):
       client = Client(["W", "A", "S", "D", "A", "A", "A", "A"])
-      testData =  [' MOVE 20 19', ' MOVE 19 19', ' MOVE 19 20', ' MOVE 20 20',
-                   ' MOVE 19 20', ' MOVE 18 20', ' MOVE 17 20', 'UPD 16 20 w']
+      testData =  ['MOVE 20 19', 'MOVE 19 19', 'MOVE 19 20', 'MOVE 20 20',
+                   'MOVE 19 20', 'MOVE 18 20', 'MOVE 17 20', '16 20 w']
       self.assertEqual(client.start(), testData)
 
 if __name__ == '__main__':
