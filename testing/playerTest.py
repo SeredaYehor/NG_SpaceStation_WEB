@@ -10,7 +10,7 @@ class Client():
       self.listen_socket = websocket.WebSocket()
       self.listen_socket.connect("ws://ss_connector:8083", ping_interval=None)
       self.position_socket = websocket.WebSocket()
-      self.position_socket.connect("ws://test:8081", ping_interval=None)
+      self.position_socket.connect("ws://ss_position:8081", ping_interval=None)
       self.testData = input
 
    def start(self):
