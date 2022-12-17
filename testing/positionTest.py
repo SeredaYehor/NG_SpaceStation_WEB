@@ -3,12 +3,12 @@ from redis import Redis
 import sys
 from playerTest import Client
 
-sys.path.append("../backend/SS_Position")
+sys.path.append("./SS_Position")
 
 import redisWorker
 import mapWorker
 
-sys.path.remove("../backend/SS_Position")
+sys.path.remove("./SS_Position")
 
 class TestPosition(unittest.TestCase):
 
