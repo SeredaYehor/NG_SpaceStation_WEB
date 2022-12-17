@@ -14,7 +14,7 @@ class TestPosition(unittest.TestCase):
 
    def setUp(self):
       self.player = "test"
-      redisWorker.redis = Redis("localhost", "6379")
+      #redisWorker.redis = Redis("localhost", "6379")
 
    def test_checkPosition(self):
       self.assertEqual(redisWorker.checkPosition(self.player), [20, 20])

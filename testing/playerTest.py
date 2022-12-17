@@ -8,9 +8,9 @@ class Client():
 
    def __init__(self, input):
       self.listen_socket = websocket.WebSocket()
-      self.listen_socket.connect("ws://localhost:8083", ping_interval=None)
+      self.listen_socket.connect("ws://ss_connector:8083", ping_interval=None)
       self.position_socket = websocket.WebSocket()
-      self.position_socket.connect("ws://localhost:8081", ping_interval=None)
+      self.position_socket.connect("ws://ss_connector:8081", ping_interval=None)
       self.testData = input
 
    def start(self):
