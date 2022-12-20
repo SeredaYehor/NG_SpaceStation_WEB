@@ -1,6 +1,9 @@
 import unittest
 import test
 
+sys.path.append("./SS_MapLoader")
+sys.path.remove("./SS_MapLoader")
+
 class TestMapLoader(unittest.TestCase):
 
    def test_map(self):
